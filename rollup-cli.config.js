@@ -5,7 +5,7 @@ export default {
     input: 'src/cli/index.ts',
     output: {
         file: 'dist/cli.js',
-        format: 'cjs',
+        format: 'cjs'
     },
     plugins: [
         resolve(),
