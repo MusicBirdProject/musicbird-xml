@@ -1,6 +1,6 @@
 {
     "name": "@musicbird/xml-parser",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "MusicBird - XML Parser",
     "main": "dist/main.js",
     "module": "dist/main.js",
@@ -8,6 +8,8 @@
     "author": "Fletcher Lind",
     "email": "musicbird.project@gmail.com",
     "license": "GNU GPL",
+    "homepage": "https://github.com/MusicBirdProject/musicbird-xml#readme",
+    "repository": "github:MusicBirdProject/musicbird-xml",
     "keywords": [
         "xml",
         "json",
