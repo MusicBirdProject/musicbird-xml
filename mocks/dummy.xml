@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Tree>
+	<Text>Text</Text>
+	<CDATA><![CDATA[Text]]></CDATA>
+	<Empty></Empty>
+	<SelfClosing/>
+	<TagWithAttrs
+			id="0"
+			ref="test-ref-value"
+			test-attr="test-attr-value">
+	</TagWithAttrs>
+	<TagSequence>1</TagSequence>
+	<TagSequence>2</TagSequence>
+	<TagSequence>3</TagSequence>
+</Tree>
