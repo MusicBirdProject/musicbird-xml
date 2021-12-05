@@ -58,8 +58,7 @@ function xmlParser(data, userConfig) {
         ontext: handleText,
         oncdata: handleCData,
         onclosecdata: handleCloseCData,
-        onerror: handleError,
-        // onend: handleEnd
+        onerror: handleError
     };
     Object.assign(parser, eventHandlers);
     parser.write(data).close();

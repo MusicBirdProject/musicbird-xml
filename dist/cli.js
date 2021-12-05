@@ -2,9 +2,25 @@
 
 var fs = require('fs');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+        Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () { return e[k]; }
+                });
+            }
+        });
+    }
+    n["default"] = e;
+    return Object.freeze(n);
+}
 
-var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
+var fs__namespace = /*#__PURE__*/_interopNamespace(fs);
 
 var cli = require('caporal');
 
@@ -64,8 +80,7 @@ function xmlParser(data, userConfig) {
         ontext: handleText,
         oncdata: handleCData,
         onclosecdata: handleCloseCData,
-        onerror: handleError,
-        // onend: handleEnd
+        onerror: handleError
     };
     Object.assign(parser, eventHandlers);
     parser.write(data).close();
@@ -138,9 +153,9 @@ cli.command('parse', 'Parse XML into JSON tree').alias('p')
     .argument('<source-file>', 'Source XML file')
     .argument('<target-file>', 'Target JSON file')
     .action(function (args, options, logger) {
-    var source = fs__default["default"].readFileSync(args.sourceFile);
+    var source = fs__namespace.readFileSync(args.sourceFile);
     var parsed = xmlParser(source.toString());
-    fs__default["default"].writeFileSync(args.targetFile, JSON.stringify(parsed));
+    fs__namespace.writeFileSync(args.targetFile, JSON.stringify(parsed));
     logger.log("".concat(args.sourceFile, " was parsed into a ").concat(args.targetFile));
 });
 
