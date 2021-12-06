@@ -1,6 +1,6 @@
 {
     "name": "@musicbird/xml-parser",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "MusicBird - XML Parser",
     "main": "dist/main.js",
     "module": "dist/main.js",
