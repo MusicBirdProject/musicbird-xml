@@ -7,7 +7,7 @@
     "typings": "index.d.ts",
     "author": "Fletcher Lind",
     "email": "musicbird.project@gmail.com",
-    "license": "GNU GPL",
+    "license": "MIT",
     "homepage": "https://github.com/MusicBirdProject/musicbird-xml#readme",
     "repository": "github:MusicBirdProject/musicbird-xml",
     "keywords": [

@@ -142,5 +142,7 @@ Output:
 
 ### Changelog
 **2.0.0**
-- parser now keeps tags names as is by default (doesn't lowercase it)
-- exported ```parser``` method was renamed with ```parseXml```
+- Parser now keeps tags names as is by default (doesn't lowercase it)
+- Exported ```parser``` method was renamed with ```parseXml```
+- A license changed to MIT
+
