@@ -57,19 +57,20 @@ var DEFAULT_CONFIG = {
     attrsKey: 'attrs',
     contentKey: 'value',
     childrenKey: 'children',
-    lowerCaseTagsContent: true
+    lowerCaseTagsContent: true,
+    lowerCaseTagsNames: false
 };
 
 var sax = require('sax');
 function xmlParser(data, userConfig) {
     if (data === void 0) { data = ''; }
     if (userConfig === void 0) { userConfig = {}; }
-    var parser = sax.parser(false, {
+    var config = __assign(__assign({}, DEFAULT_CONFIG), userConfig);
+    var parser = sax.parser(!config.lowerCaseTagsNames, {
         trim: true,
         normalize: true,
-        lowercase: true
+        lowercase: config.lowerCaseTagsNames
     });
-    var config = __assign(__assign({}, DEFAULT_CONFIG), userConfig);
     var stack = [];
     var currentElement = null;
     var result = {};

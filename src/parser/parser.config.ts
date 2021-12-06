@@ -5,7 +5,9 @@ export interface ParserConfig {
     contentKey?: string;
     childrenKey?: string;
     rootKey?: string;
+    normalize?: boolean;
     lowerCaseTagsContent?: boolean;
+    lowerCaseTagsNames?: boolean;
 }
 
 export const DEFAULT_CONFIG: ParserConfig = {
@@ -15,5 +17,7 @@ export const DEFAULT_CONFIG: ParserConfig = {
     attrsKey: 'attrs',
     contentKey: 'value',
     childrenKey: 'children',
-    lowerCaseTagsContent: true
+    normalize: true,
+    lowerCaseTagsContent: true,
+    lowerCaseTagsNames: false
 };

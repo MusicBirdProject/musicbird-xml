@@ -4,16 +4,17 @@ import { ParserConfig, DEFAULT_CONFIG } from './parser.config';
 import { NodeWrapper } from './node.interface';
 
 export function xmlParser(data: string = '', userConfig: ParserConfig = {}): NodeWrapper {
-    const parser = sax.parser(false, {
-        trim: true,
-        normalize: true,
-        lowercase: true
-    });
-
     const config: ParserConfig = {
         ...DEFAULT_CONFIG,
         ...userConfig
     };
+
+    const strict = !config.lowerCaseTagsNames;
+    const parser = sax.parser(strict, {
+        trim: true,
+        normalize: config.normalize,
+        lowercase: config.lowerCaseTagsNames
+    });
 
     let stack = [];
     let currentElement = null;

@@ -15,10 +15,10 @@ npm install @musicbird/xml-parser
 ## Usage
 
 ```ts
-import {parse, NodeWrapper} from '@musicbird/xml-parser';
+import {parseXml, NodeWrapper} from '@musicbird/xml-parser';
 
 const xmlString = '<SOME XML DOCUMENT>';
-const jsonTree: NodeWrapper = parse(mainFile, { 
+const jsonTree: NodeWrapper = parseXml(mainFile, { 
     // options 
 });
 ```
@@ -46,28 +46,33 @@ interface Node {
 ## Config Format
 
 ```ts
-interface ParserConfig {
-    doctypeKey?: string; 
-    rootKey?: string;
-    tagKey?: string; 
-    contentKey?: string;
+export interface ParserConfig {
+    doctypeKey?: string;
+    tagKey?: string;
     attrsKey?: string;
-    childrenKey?: string; 
+    contentKey?: string;
+    childrenKey?: string;
+    rootKey?: string;
+    normalize?: boolean;
     lowerCaseTagsContent?: boolean;
+    lowerCaseTagsNames?: boolean;
 }
 ```
 
 ### Default Config
 ```ts
-const DEFAULT_CONFIG: ParserConfig = {
+export const DEFAULT_CONFIG: ParserConfig = {
     doctypeKey: 'doctype',
     rootKey: 'root',
     tagKey: 'name',
     attrsKey: 'attrs',
     contentKey: 'value',
     childrenKey: 'children',
-    lowerCaseTagsContent: true
+    normalize: true,
+    lowerCaseTagsContent: true,
+    lowerCaseTagsNames: false
 };
+
 ```
 
 ## Example
@@ -93,25 +98,25 @@ Output:
 ```json
 {
   "root": {
-    "name": "tree",
+    "name": "Tree",
     "children": [
       {
-        "name": "text",
+        "name": "Text",
         "value": "text"
       },
       {
-        "name": "cdata",
+        "name": "CDATA",
         "value": "Text"
       },
       {
-        "name": "empty"
+        "name": "Empty"
       },
       {
-        "name": "selfclosing",
+        "name": "SelfClosing",
         "isSelfClosing": true
       },
       {
-        "name": "tagwithattrs",
+        "name": "TagWithAttrs",
         "attrs": {
           "id": "0",
           "ref": "test-ref-value",
@@ -119,18 +124,23 @@ Output:
         }
       },
       {
-        "name": "tagsequence",
+        "name": "TagSequence",
         "value": "1"
       },
       {
-        "name": "tagsequence",
+        "name": "TagSequence",
         "value": "2"
       },
       {
-        "name": "tagsequence",
+        "name": "TagSequence",
         "value": "3"
       }
     ]
   }
 }
 ```
+
+### Changelog
+**2.0.0**
+- parser now keeps tags names as is by default (doesn't lowercase it)
+- exported ```parser``` method was renamed with ```parseXml```
