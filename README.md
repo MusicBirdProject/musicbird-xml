@@ -140,7 +140,10 @@ Output:
 }
 ```
 
-### Changelog
+## Dependencies
+Uses [sax](https://www.npmjs.com/package/sax) to parse xml
+
+## Changelog
 **2.0.0**
 - Parser now keeps tags names as is by default (doesn't lowercase it)
 - Exported ```parser``` method was renamed with ```parseXml```
