@@ -3,6 +3,26 @@
 Converts XML document into a JSON tree.
 Used as a part of a GPX (Guitar Pro 6+ format) files parser in the MusicBird ecosystem.
 
+## Installation
+```
+yarn add @musicbird/xml-parser
+``` 
+or 
+```
+npm install @musicbird/xml-parser
+```
+
+## Usage
+
+```ts
+import {parse, NodeWrapper} from '@musicbird/xml-parser';
+
+const xmlString = '<SOME XML DOCUMENT>';
+const jsonTree: NodeWrapper  = parse(mainFile, { 
+    // options 
+});
+```
+
 ## Output Data Format
 ### Wrapper
 ```ts
