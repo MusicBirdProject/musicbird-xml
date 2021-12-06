@@ -18,7 +18,7 @@ npm install @musicbird/xml-parser
 import {parse, NodeWrapper} from '@musicbird/xml-parser';
 
 const xmlString = '<SOME XML DOCUMENT>';
-const jsonTree: NodeWrapper  = parse(mainFile, { 
+const jsonTree: NodeWrapper = parse(mainFile, { 
     // options 
 });
 ```
