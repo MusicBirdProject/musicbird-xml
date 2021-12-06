@@ -57,6 +57,7 @@ var DEFAULT_CONFIG = {
     attrsKey: 'attrs',
     contentKey: 'value',
     childrenKey: 'children',
+    normalize: true,
     lowerCaseTagsContent: true,
     lowerCaseTagsNames: false
 };
@@ -66,9 +67,10 @@ function xmlParser(data, userConfig) {
     if (data === void 0) { data = ''; }
     if (userConfig === void 0) { userConfig = {}; }
     var config = __assign(__assign({}, DEFAULT_CONFIG), userConfig);
-    var parser = sax.parser(!config.lowerCaseTagsNames, {
+    var strict = !config.lowerCaseTagsNames;
+    var parser = sax.parser(strict, {
         trim: true,
-        normalize: true,
+        normalize: config.normalize,
         lowercase: config.lowerCaseTagsNames
     });
     var stack = [];
