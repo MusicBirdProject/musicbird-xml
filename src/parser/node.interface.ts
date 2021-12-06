@@ -1,3 +1,7 @@
+export interface NodeWrapper {
+    root: Node;
+}
+
 export interface Node {
     name: string;
     value: string;
@@ -6,8 +10,4 @@ export interface Node {
         [key: string]: string;
     };
     children: Node[];
-}
-
-export interface NodeWrapper {
-    root: Node;
 }

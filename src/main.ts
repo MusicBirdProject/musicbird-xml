@@ -1,6 +1,6 @@
 import { Node } from './parser/node.interface';
 
-export { default as parse } from './parser/parser';
+export { xmlParser as parse } from './parser/parser';
 export class NodeModel implements Node {
     name;
     value;

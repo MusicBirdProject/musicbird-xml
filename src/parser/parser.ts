@@ -1,9 +1,9 @@
 const sax = require('sax');
 
 import { ParserConfig, DEFAULT_CONFIG } from './parser.config';
-import { Node, NodeWrapper } from './node.interface';
+import { NodeWrapper } from './node.interface';
 
-export default function xmlParser(data: string = '', userConfig: ParserConfig = {}): NodeWrapper {
+export function xmlParser(data: string = '', userConfig: ParserConfig = {}): NodeWrapper {
     const parser = sax.parser(false, {
         trim: true,
         normalize: true,
